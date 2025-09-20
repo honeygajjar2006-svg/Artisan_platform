@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{artisan.name}}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>{{artisan.name}}'s Store</h1>
+
+  <h2>Add Product</h2>
+  <form method="post" action="/add/{{artisan.id}}">
+    <input name="title" placeholder="Product title" required><br>
+    <textarea name="desc" id="desc" placeholder="Description"></textarea><br>
+    <input type="number" step="0.01" name="price" placeholder="Price" required><br>
+    <button>Add</button>
+  </form>
+
+  <h3>🎤 Voice Input</h3>
+  <button onclick="startRec()">Speak</button>
+  <script>
+    function startRec(){
+      const recog = new webkitSpeechRecognition();
+      recog.lang = 'en-IN';
+      recog.onresult = e => document.getElementById("desc").value = e.results[0][0].transcript;
+      recog.start();
+    }
+  </script>
+
+  <h2>Products</h2>
+  <ul>
+    {% for p in products %}
+      <li>{{p.title}} — ₹ {{p.price}} <a href="/product/{{p.id}}">View</a></li>
+    {% endfor %}
+  </ul>
+
+  <a href="/">Home</a>
+</body>
+</html>

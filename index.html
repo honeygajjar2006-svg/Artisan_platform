@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>ArtisanSocial</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>ArtisanSocial</h1>
+
+  <h2>Register Artisan</h2>
+  <form method="post" action="/register">
+    <input name="name" placeholder="Artisan name" required>
+    <button>Register</button>
+  </form>
+
+  <h2>Artisans</h2>
+  <ul>
+    {% for a in artisans %}
+      <li><a href="/artisan/{{a.id}}">{{a.name}}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>Shop</h2>
+  <ul>
+    {% for p in products %}
+      <li>
+        {{p.title}} — ₹ {{p.price}}
+        <a class="btn" href="/product/{{p.id}}">View</a>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{p.title}}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="product-box">
+    <h1>{{p.title}}</h1>
+    <p>{{p.desc}}</p>
+    <p><b>Price:</b> ₹ {{p.price}}</p>
+
+    <button onclick="speak()">🔊 Listen</button>
+    <script>
+      function speak(){
+        const msg = new SpeechSynthesisUtterance("{{p.desc}}");
+        speechSynthesis.speak(msg);
+      }
+    </script>
+
+    <form id="payForm">
+      <button type="submit">💳 Buy Now</button>
+    </form>
+    <script>
+      document.getElementById("payForm").addEventListener("submit", async e=>{
+        e.preventDefault();
+        const resp = await fetch("/create-checkout-session/{{p.id}}", {method:"POST"});
+        const data = await resp.json();
+        window.location = data.url;
+      });
+    </script>
+
+    <h3>Share</h3>
+    <a href="https://wa.me/?text={{p.title}} - {{p.desc}}">WhatsApp</a> |
+    <a href="https://twitter.com/intent/tweet?text={{p.title}}">Twitter</a> |
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{request.url}}">Facebook</a>
+  </div>
+  <p><a href="/">Back</a></p>
+</body>
+</html>

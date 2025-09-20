@@ -1,0 +1,50 @@
+{
+  "artisans": [
+    {
+      "id": "2df9a6ba-d894-45f2-9ca3-c3ff28d2e71c",
+      "name": "Ram"
+    },
+    {
+      "id": "be90468a-53ce-4810-8ed4-c65963a2a26a",
+      "name": "Rohan"
+    },
+    {
+      "id": "da88d6bd-f756-45e9-b44a-2009192497e8",
+      "name": "Xavier"
+    }
+  ],
+  "products": [
+    {
+      "id": "5b96628b-9ae9-441a-af20-b78c20f4fba3",
+      "title": "Pot",
+      "artisan_id": "2df9a6ba-d894-45f2-9ca3-c3ff28d2e71c"
+    },
+    {
+      "id": "5c7ea58b-ec4a-4e10-84d5-0dfc3476f15b",
+      "title": "selling earthen pots",
+      "artisan_id": "2df9a6ba-d894-45f2-9ca3-c3ff28d2e71c"
+    },
+    {
+      "id": "9f12fb36-086b-4286-86cb-0893ee5906d3",
+      "title": "Fairy lights",
+      "desc": "effective and effordable",
+      "artisan_id": "be90468a-53ce-4810-8ed4-c65963a2a26a",
+      "story": "Fairy lights \u2014 handcrafted by Rohan. Story: effective and effordable",
+      "tags": [
+        "#effective",
+        "#effordable"
+      ],
+      "translations": {
+        "en": "effective and effordable [en]",
+        "hi": "effective and effordable [hi]"
+      }
+    },
+    {
+      "id": "9f910c1f-13fe-4679-b432-04ebe7d7281e",
+      "title": "Woolen Sweatshirt",
+      "desc": "Purely Woolen sweatshirt , woven with love and finishing . A must try product !!!",
+      "price": 1000.0,
+      "artisan_id": "da88d6bd-f756-45e9-b44a-2009192497e8"
+    }
+  ]
+}
